@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ЧИСТКИ</title>
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .button-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <h1>ЧИСТКИ БОРД</h1>
+    <div class="button-container" id="buttonContainer">
+        <!-- Buttons will be added here dynamically -->
+    </div>
+
+    <script>
+        const buttonNames = [
+            "ДА",
+            "НЕТ",
+            "НЕ ЗНАЮ",
+            "ЧТО ТАКОЕ ЧИСТКИ",
+            "СОРИ ЗАНЯТ",
+            "ЧЪ",
+            "ПИЗДЕЦ",
+        ];
+
+        const buttonContainer = document.getElementById('buttonContainer');
+
+        buttonNames.forEach((name, index) => {
+            const button = document.createElement('button');
+            button.textContent = name;
+            button.onclick = () => playSound(index + 1);
+            buttonContainer.appendChild(button);
+        });
+
+        function playSound(index) {
+            const audio = new Audio(`${index}.mp3`);
+            audio.play();
+        }
+    </script>
+</
